@@ -5,7 +5,9 @@
 #include <pwd.h>
 	
 void mostrar_info_sistema() {
-    printf("=== Monitor de Procesos del Sistema ===\n");
+   printf("=== Monitor de Procesos del Sistema ===\n");
+printf("Versión: 1.0\n");
+
     
     // Obtener información del usuario
     struct passwd *pw = getpwuid(getuid());
