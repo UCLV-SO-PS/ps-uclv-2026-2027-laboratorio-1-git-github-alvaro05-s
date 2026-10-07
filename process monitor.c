@@ -1,28 +1,29 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
-
-void mostrar_info_sistema(){
-    printf("=== Monitorde Procesos del Sistema ===\n");
-    printf("Sistema inicializando correctamente\n");
-
+#include <sys/types.h>
+#include <pwd.h>
+	
+void mostrar_info_sistema() {
+    printf("=== Monitor de Procesos del Sistema ===\n");
+    
+    // Obtener información del usuario
+    struct passwd *pw = getpwuid(getuid());
+    if (pw) {
+        printf("Usuario: %s\n", pw->pw_name);
+    }
+    
+    printf("PID del proceso: %d\n", getpid());
+    printf("PID del proceso padre: %d\n", getppid());
 }
-int main(){
+
+void mostrar_uso_memoria() {
+    printf("--- Información de Memoria ---\n");
+    printf("Funcionalidad de memoria por implementar\n");
+}
+
+int main() {
     mostrar_info_sistema();
+    mostrar_uso_memoria();
     return 0;
-
 }
-CC = gcc
-CFLAGS = -Wall -Wextra
-TARGET = process_monitor
-SOURCES = process_monitor.c
-
-$(TARGET): $(SOURCES)
-    $(CC) $(CFLAGS) -o $(TARGET) $(SOURCES)
-
-clean:
-    rm -f $(TARGET)
-
-.PHONY: clean
-
-
