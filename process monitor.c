@@ -4,16 +4,13 @@
 #include <sys/types.h>
 #include <pwd.h>
 #include <sys/sysinfo.h>
-
+	
 void mostrar_info_sistema() {
 printf("=== Monitor de Procesos del Sistema ===\n");
-<<<<<<< HEAD
-printf("Version: 1.0\n");
-=======
-printf("Versión: 2.0 -- Conflictiva --\n");
->>>>>>> feature-nueva-funcionalidad-conflicto
+printf("Versión: 3.0 -- Cambio no deseado --\n");
 
     
+    // Obtener información del usuario
     struct passwd *pw = getpwuid(getuid());
     if (pw) {
         printf("Usuario: %s\n", pw->pw_name);
@@ -25,16 +22,7 @@ printf("Versión: 2.0 -- Conflictiva --\n");
 
 void mostrar_uso_memoria() {
     printf("--- Información de Memoria ---\n");
-    
-    struct sysinfo info;
-    if (sysinfo(&info) == 0) {
-        printf("Memoria total: %lu MB\n", info.totalram / 1024 / 1024);
-        printf("Memoria libre: %lu MB\n", info.freeram / 1024 / 1024);
-        printf("Memoria utilizada: %lu MB\n", 
-               (info.totalram - info.freeram) / 1024 / 1024);
-    } else {
-        printf("Error al obtener información de memoria\n");
-    }
+    printf("Funcionalidad de memoria por implementar\n");
 }
 
 int main() {
