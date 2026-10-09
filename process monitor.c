@@ -5,7 +5,7 @@
 #include <pwd.h>
 #include <sys/sysinfo.h>
 
-void mostrar_info_sistema() {
+ void mostrar_info_sistema() {
 printf("=== Monitor de Procesos del Sistema ===\n");
 <<<<<<< HEAD
 printf("Version: 1.0\n");
